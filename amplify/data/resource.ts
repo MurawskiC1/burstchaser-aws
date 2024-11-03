@@ -1,27 +1,59 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
-/*== STEP 1 ===============================================================
-The section below creates a Todo database table with a "content" field. Try
-adding a new "isDone" field as a boolean. The authorization rule below
-specifies that any unauthenticated user can "create", "read", "update", 
-and "delete" any "Todo" records.
-=========================================================================*/
+// Define the schema for the PulseShape model
 const schema = a.schema({
   PulseShape: a
     .model({
-      content: a.string(),
+      Burst_Name: a.string(),
+      BurstID: a.string(),
+      Burst_PNG: a.string(),
+      Simple: a.integer(),
+      Extended: a.integer(),
+      Other: a.integer(),
+      Too_Noisy: a.integer(),
+      Symmetrical: a.integer(),
+      FastRiseSlowDecay: a.integer(),
+      UnderlyingEmission: a.integer(),
+      RapidlyVarying: a.integer(),
+      Verify: a.string(),
+      Simple_Zscore: a.float(),
+      Simple_Pvalue: a.float(),
+      Simple_Confidence: a.float(),
+      Extended_Zscore: a.float(),
+      Extended_Pvalue: a.float(),
+      Extended_Confidence: a.float(),
+      Other_Zscore: a.float(),
+      Other_Pvalue: a.float(),
+      Other_Confidence: a.float(),
+      Too_Noisy_Zscore: a.float(),
+      Too_Noisy_Pvalue: a.float(),
+      Too_Noisy_Confidence: a.float(),
+      Final_Confidence: a.float(),
     })
     .authorization((allow) => [allow.guest()]),
 });
 
+// Export the schema type
 export type Schema = ClientSchema<typeof schema>;
 
+// Export the model schema type directly
+
+
+// Define the data for the schema
 export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'iam',
   },
 });
+
+
+/*== STEP 1 ===============================================================
+The section below creates a Todo database table with a "content" field. Try
+adding a new "isDone" field as a boolean. The authorization rule below
+specifies that any unauthenticated user can "create", "read", "update",
+and "delete" any "Todo" records.
+=========================================================================*/
 
 /*== STEP 2 ===============================================================
 Go to your frontend source code. From your client-side code, generate a
