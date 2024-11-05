@@ -1,5 +1,4 @@
-import React from 'react';
-import { a, defineData } from '@aws-amplify/backend';
+import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
 // Define the schema for the PulseShape model
 const schema = a.schema({
@@ -34,27 +33,19 @@ const schema = a.schema({
     .authorization((allow) => [allow.guest()]),
 });
 
+// Export the schema type
+export type Schema = ClientSchema<typeof schema>;
+
+// Export the model schema type directly
+
+
 // Define the data for the schema
-const data = defineData({
+export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'iam',
   },
 });
-
-// Define a React component to wrap the schema configuration
-const BackendDataConfig = () => {
-  // Configuration logic here, no UI to render for backend-only config
-  return (
-    <div>
-      <h1>Amplify Data Configuration</h1>
-      <p>The PulseShape model schema and authorization modes have been set up in this component.</p>
-    </div>
-  );
-};
-
-export { data, schema }; // Export schema if needed in TypeScript for type extraction
-export default BackendDataConfig;
 
 
 /*== STEP 1 ===============================================================
