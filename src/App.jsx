@@ -8,27 +8,51 @@ import data from './data/pulse_shape.json';
 
 function App() {
 
+  const jsonToCsv = (json) => {
+    const csvRows = [];
+    const headers = Object.keys(json[0]);
+    csvRows.push(headers.join(','));
 
+    for (const row of json) {
+      const values = headers.map(header => {
+        const escaped = ('' + row[header]).replace(/"/g, '\\"');
+        return `"${escaped}"`;
+      });
+      csvRows.push(values.join(','));
+    }
+
+    return csvRows.join('\n');
+  };
+
+  const downloadCsv = (csvData, filename = 'BC_PulseShapes.csv') => {
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('hidden', '');
+    a.setAttribute('href', url);
+    a.setAttribute('download', filename);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+  const handleDownload = (jsonData) => {
+    const csvData = jsonToCsv(jsonData);
+    downloadCsv(csvData);
+  };
 
 
 
   return (
-    <>
-
-      <h1>GRB Burst Data</h1>
-      <ul>
-        {data.map((burst) => (
-          <li key={burst.BurstID}>
-            <h2>{burst.Burst_Name}</h2>
-            <p><strong>Burst ID:</strong> {burst.BurstID}</p>
-            <p><strong>Simple:</strong> {burst.Simple}</p>
-            <p><strong>Extended:</strong> {burst.Extended}</p>
-            <p><strong>Final Confidence:</strong> {burst.Final_Confidence}</p>
-            <img src={burst.Burst_PNG} alt={`${burst.Burst_Name} image`} />
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="prepage-container">
+      <div className="prepage-header">
+        <div>
+          <h1>BURST CHASER</h1>
+        </div>
+      </div>
+      <div className='prepage-buttons'>
+        <button onClick={() => handleDownload(data)}>Download</button>
+      </div>
+    </div>
   )
 }
 
