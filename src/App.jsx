@@ -4,16 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { generateClient } from "aws-amplify/data";
 import { Amplify } from 'aws-amplify';
-import outputs from '../amplify_outputs.json';
-import data from './pulse_shape.json';
+
+import data from './data/pulse_shape.json';
 
 Amplify.configure(outputs);
 
 function App() {
   const [count, setCount] = useState(0)
-  const client = generateClient();
 
-  console.log(client.models.PulseShape)
+
+
 
 
   return (
