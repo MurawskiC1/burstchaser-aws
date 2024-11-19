@@ -1,46 +1,29 @@
+import { useState } from 'react';
+import './App.css';
+// import { Amplify } from 'aws-amplify';
+// import outputs from '../amplify_outputs.json';
+import initialData from './data/pulse_shape.json';
+import { jsonToCsv, downloadCsv, getBursts, sortLowHigh, sortHighLow } from './functions/datamanager';
 
-import './App.css'
-/*import { Amplify } from 'aws-amplify';
-import outputs from '../amplify_outputs.json';*/
-import data from './data/pulse_shape.json';
-
-/*Amplify.configure(outputs);*/
+// Amplify.configure(outputs);
 
 function App() {
+  const [data, setData] = useState(initialData);
 
-  const jsonToCsv = (json) => {
-    const csvRows = [];
-    const headers = Object.keys(json[0]);
-    csvRows.push(headers.join(','));
-
-    for (const row of json) {
-      const values = headers.map(header => {
-        const escaped = ('' + row[header]).replace(/"/g, '\\"');
-        return `"${escaped}"`;
-      });
-      csvRows.push(values.join(','));
-    }
-
-    return csvRows.join('\n');
+  const handleFilter = (filter) => {
+    const filteredData = getBursts(filter); // Assuming getBursts filters data
+    setData(filteredData);
   };
 
-  const downloadCsv = (csvData, filename = 'BC_PulseShapes.csv') => {
-    const blob = new Blob([csvData], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.setAttribute('hidden', '');
-    a.setAttribute('href', url);
-    a.setAttribute('download', filename);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+  const handleSort = (key) => {
+    const sortedData = sortHighLow(data, key); // Assuming sort returns a new array
+    setData(sortedData); // Update state with sorted data
   };
-  const handleDownload = (jsonData) => {
+
+  const handleDownload = (jsonData, filename) => {
     const csvData = jsonToCsv(jsonData);
-    downloadCsv(csvData);
+    downloadCsv(csvData, filename);
   };
-
-
 
   return (
     <div className="prepage-container">
@@ -49,11 +32,22 @@ function App() {
           <h1>BURST CHASER</h1>
         </div>
       </div>
-      <div className='prepage-buttons'>
-        <button onClick={() => handleDownload(data)}>Download</button>
+      <div className="prepage-buttons">
+        <button onClick={() => handleDownload(data, 'BC_PulseShapes.csv')}>Download</button>
+        <button onClick={() => handleFilter("Simple")}>Filter</button>
+        <button onClick={() => handleSort("Simple")}>Sort</button>
+      </div>
+
+      <div>
+        {data.map((burst, index) => (
+          <div key={index}>
+            <h2>Burst {index + 1}</h2>
+            <pre>{JSON.stringify(burst, null, 2)}</pre>
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
