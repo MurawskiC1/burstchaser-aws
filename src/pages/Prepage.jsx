@@ -2,8 +2,8 @@ import React from "react"
 import { useState } from 'react';
 
 
-import { jsonToCsv, downloadCsv, getBursts } from './functions/datamanager';
-import { BurstTable } from './components/BurstTable';
+import { jsonToCsv, downloadCsv, getBursts } from '../functions/datamanager';
+import { BurstTable } from '../components/BurstTable';
 
 export default function Prepage(props) {
 
