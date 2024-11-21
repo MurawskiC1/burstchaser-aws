@@ -1,26 +1,6 @@
 
 import data from "../data/pulse_shape.json";
 
-export function getBursts(filters, searchQuery, sorting) {
-    let updatedData = [...data];
-
-    // Apply filters
-    filters.forEach((filter) => {
-        updatedData = filterBurst(updatedData, filter, "Verify");
-    });
-
-    // Apply search
-    if (searchQuery) {
-        updatedData = filterBurst(updatedData, searchQuery, "Burst_Name");
-    }
-
-    // Apply sorting
-    if (sorting.key) {
-        updatedData = sort(updatedData, sorting.key, sorting.ascending);
-    }
-
-    return updatedData;
-};
 
 export function downloadCsv(csvData, filename) {
     const blob = new Blob([csvData], { type: 'text/csv' });
@@ -50,51 +30,49 @@ export function jsonToCsv(json) {
     return csvRows.join('\n');
 };
 
+export function getBursts(filter = 'None', sort = '') {
+    let out = [];
+
+    if (filter === "None") {
+        out.push(...data);
+    } else {
+        out = filterBurst(data, filter);
+    }
 
 
-export function filterBurst(data, filter, by) {
+    return out;
+}
+
+function filterBurst(data, filter) {
     const out = [];  // Properly declare `out` here
 
     data.forEach((burst) => {
-        if (burst[by].includes(filter)) {  // Assumes `burst.Verify` is a string or array
+        if (burst.Verify.includes(filter)) {  // Assumes `burst.Verify` is a string or array
             out.push(burst);
         }
     });
     return out;
 }
 
-export function sort(json, by, HighLow = true) {
-    // Input validation
-    if (!Array.isArray(json)) {
-        throw new Error("Input must be an array");
-    }
-    if (json.length > 0 && !Object.prototype.hasOwnProperty.call(json[0], by)) {
-        throw new Error(`Property "${by}" does not exist in JSON objects`);
-    }
-
-    // Base case
+//SORT ANY JSON FILE BY A CERTAIN CATAGORY USING MERGE SORT
+export function sortLowHigh(json, by) {
+    // Base case: if the array has 1 or no elements, it's already sorted
     if (json.length <= 1) {
         return json;
     }
 
-    // Divide
+    // Divide the array into two halves
     const mid = Math.floor(json.length / 2);
-    const lower = sort(json.slice(0, mid), by, HighLow);
-    const higher = sort(json.slice(mid), by, HighLow);
+    const lower = sortLowHigh(json.slice(0, mid), by);
+    const higher = sortLowHigh(json.slice(mid), by);
 
-    // Merge
-    const out = [];
+    // Merge the sorted halves
     let i = 0, j = 0;
+    const out = [];
 
     while (i < lower.length || j < higher.length) {
-        if (
-            j >= higher.length ||
-            (i < lower.length && (
-                HighLow
-                    ? lower[i][by] >= higher[j][by] // Descending
-                    : lower[i][by] <= higher[j][by] // Ascending
-            ))
-        ) {
+        // Handle cases where one of the arrays is fully traversed
+        if (j >= higher.length || (i < lower.length && lower[i][by] <= higher[j][by])) {
             out.push(lower[i]);
             i++;
         } else {
@@ -105,4 +83,35 @@ export function sort(json, by, HighLow = true) {
 
     return out;
 }
+
+export function sortHighLow(json, by) {
+    // Base case: if the array has 1 or no elements, it's already sorted
+    if (json.length <= 1) {
+        return json;
+    }
+
+    // Divide the array into two halves
+    const mid = Math.floor(json.length / 2);
+    const lower = sortHighLow(json.slice(0, mid), by);
+    const higher = sortHighLow(json.slice(mid), by);
+
+    // Merge the sorted halves
+    let i = 0, j = 0;
+    const out = [];
+
+    while (i < lower.length || j < higher.length) {
+        // Handle cases where one of the arrays is fully traversed
+        if (j >= higher.length || (i < lower.length && lower[i][by] >= higher[j][by])) {
+            out.push(lower[i]);
+            i++;
+        } else {
+            out.push(higher[j]);
+            j++;
+        }
+    }
+
+    return out;
+}
+
+
 
