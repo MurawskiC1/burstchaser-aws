@@ -8,10 +8,8 @@ function App() {
     return (
         <>
             <Router>
-
                 <div>
                     <AppRoutes />
-
                 </div>
             </Router>
         </>
