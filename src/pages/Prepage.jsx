@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from 'react';
 
-
+import { Link } from 'react-router-dom';
 import { jsonToCsv, downloadCsv, getBursts } from '../functions/datamanager';
 import { BurstTable } from '../components/BurstTable';
 
@@ -56,6 +56,8 @@ export default function Prepage(props) {
                 <button onClick={() => handleSort("Simple")}>
                     Sort
                 </button>
+                <Link to="/alexis"><button>For Alexis</button></Link>
+
             </div>
 
             <div>
