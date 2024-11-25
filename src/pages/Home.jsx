@@ -27,6 +27,7 @@ export default function Home(props) {
                             }}*/>
                                 <button>Search</button>
                             </Link>
+                            <Link to="/alexis"><button>For Alexis</button></Link>
                         </div>
                     </div>
                 </div>
