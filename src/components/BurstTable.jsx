@@ -14,7 +14,7 @@ export function BurstTable({ bursts, start, end, handleSort }) {
                     <th onClick={() => handleSort("Extended")}>Extended</th>
                     <th onClick={() => handleSort("Other")}>Other</th>
                     <th onClick={() => handleSort("Too_Noisy")}>Too Noisy</th>
-                    <th onClick={() => handleSort("verify")}>Verified</th>
+                    <th onClick={() => handleSort("Verify")}>Verified</th>
                     <th onClick={() => handleSort("Final_Confidence")}>Confidence</th>
                 </tr>
             </thead>
@@ -23,7 +23,7 @@ export function BurstTable({ bursts, start, end, handleSort }) {
                     <tr key={burst.BurstID}>
                         <td>{start + index + 1}</td>
                         <td><img src={`/BurstPhotos/${burst.Burst_PNG}`} alt={burst.Burst_Name} /></td>
-                        <td>{/*<Link to={`${burst.Burst_Name}`}>{burst.Burst_Name}</Link>*/}</td>
+                        <td><Link to={`${burst.Burst_Name}`}>{burst.Burst_Name}</Link></td>
                         <td>{burst.BurstID}</td>
 
                         <td>{burst.Simple}</td>
