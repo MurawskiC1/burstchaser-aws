@@ -12,13 +12,15 @@ export default function Home(props) {
             <div className="home">
                 <div className="home-search">
                     <div className="home-search-buttons">
-                        <input
-                            className="SearchBar"
-                            type="text"
-                            value={searchQuery}
-                            onChange={handleSearch}
-                            placeholder="Search..."
-                        />
+                        <div className='search-container'>
+                            <input
+                                className="SearchBar"
+                                type="text"
+                                value={searchQuery}
+                                onChange={handleSearch}
+                                placeholder="Search..."
+                            />
+                        </div>
                         {/* Pass searchQuery as state in Link */}
                         <div className='search-button'>
                             <Link /* to={{
@@ -27,7 +29,7 @@ export default function Home(props) {
                             }}*/>
                                 <button>Search</button>
                             </Link>
-                            <Link to="/alexis"><button>For Alexis</button></Link>
+
                         </div>
                     </div>
                 </div>

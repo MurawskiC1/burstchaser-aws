@@ -320,7 +320,8 @@
 }
 
 .search-container input {
-  width: 500px;
+  width: 30vw;
+
   height: 25px;
 }
 
@@ -568,6 +569,8 @@
 .home-search {
   width: 50vw;
   height: 80vh;
+
+  margin-top: 11vh;
   display: flex;
   justify-content: center;
   align-items: center;

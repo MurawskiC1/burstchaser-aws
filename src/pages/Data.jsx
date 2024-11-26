@@ -98,13 +98,15 @@ export default function Data() {
             <div className="main-page" onClick={() => clickOff()}>
                 <div className="filter-container">
                     <button className="toggle" onClick={() => setIsOpen(!isOpen)}>+ Filters</button>
-                    <input
-                        className="SearchBar"
-                        type="text"
-                        value={searchQuery}
-                        onChange={handleSearch}
-                        placeholder="Search..."
-                    />
+                    <div className='search-container'>
+                        <input
+                            className="SearchBar"
+                            type="text"
+                            value={searchQuery}
+                            onChange={handleSearch}
+                            placeholder="Search..."
+                        />
+                    </div>
                 </div>
                 <div className='data-container'>
                     <BurstTable bursts={data} start={start} end={end} handleSort={(sorting) => handleSort(sorting, setSorting)} />
