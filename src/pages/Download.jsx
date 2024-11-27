@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DownloadPreview from "./DownloadPreview";
-import { jsonToCsv, downloadCsv, getBursts } from '../functions/datamanager';
+import { jsonToCsv, downloadCsv, getBursts } from "../functions/datamanager";
 
 export default function Download(props) {
-
     const [filters, setFilters] = useState([]);
     const bursts = getBursts(filters, "", "");
     const [isNotPreview, setPreview] = useState(true);
-
-
 
     const [checkedItems, setCheckedItems] = useState({
         Simple: false,
@@ -18,21 +15,21 @@ export default function Download(props) {
         All: false,
     });
 
-
-
+    // Handle individual and "All" checkbox changes
     const handleCheckboxChange = (type) => {
         setCheckedItems((prevCheckedItems) => {
+            const isAllToggle = type === "All";
             const newCheckedItems = { ...prevCheckedItems, [type]: !prevCheckedItems[type] };
 
-            if (type === 'All') {
+            if (isAllToggle) {
                 const allChecked = !prevCheckedItems.All;
                 const updatedCheckedItems = Object.keys(newCheckedItems).reduce((acc, key) => {
                     acc[key] = allChecked;
                     return acc;
                 }, {});
 
-                setCheckedItems(updatedCheckedItems);
-                setArrFilters(allChecked ? ['Simple', 'Extended', 'Other', 'Too_Noisy'] : []);
+                setFilters(allChecked ? ["Simple", "Extended", "Other", "Too_Noisy"] : []);
+                return updatedCheckedItems;
             } else {
                 if (newCheckedItems[type]) {
                     setFilters((prevFilters) => [...prevFilters, type]);
@@ -45,8 +42,17 @@ export default function Download(props) {
         });
     };
 
+    // Handle file download
+    const handleDownload = (jsonData, filters) => {
+        let filename = "BurstChaser";
 
-    const handleDownload = (jsonData, filename) => {
+        // Append filters to filename
+        if (filters.length > 0) {
+            filters.forEach((filter) => {
+                filename += `_${filter}`;
+            });
+        }
+
         const csvData = jsonToCsv(jsonData);
         downloadCsv(csvData, filename);
     };
@@ -63,7 +69,7 @@ export default function Download(props) {
                                     checked={checkedItems[type]}
                                     onChange={() => handleCheckboxChange(type)}
                                 />
-                                {type.replace('_', ' ')}
+                                {type.replace("_", " ")}
                             </div>
                         ))}
                     </div>
@@ -74,9 +80,11 @@ export default function Download(props) {
             <div className="download-preview-container">
                 <div className="download-preview-buttons">
                     <button onClick={() => setPreview(!isNotPreview)}>
-                        {isNotPreview ? "Preview" : "Filters"}
+                        {isNotPreview ? "Show Preview" : "Show Filters"}
                     </button>
-                    <button onClick={() => handleDownload(bursts)}>Download</button>
+                    <button onClick={() => handleDownload(bursts, filters)}>
+                        Download
+                    </button>
                 </div>
             </div>
         </div>
