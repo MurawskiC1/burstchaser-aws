@@ -10,9 +10,13 @@ export function AppliedFilters({ appliedFilters, handleRemoveFilter, setFilter }
     return (
         <div className='applied-filters'>
             {appliedFilters.map((filter, index) => (
-                <button key={index} onClick={() => handleRemoveFilter(filter, setFilter)}>
-                    {filter} x
+                <button
+                    key={index}
+                    onClick={() => handleRemoveFilter(filter, setFilter)}
+                >
+                    {filter || "Not Classified"} x
                 </button>
+
             ))}
         </div>
     );

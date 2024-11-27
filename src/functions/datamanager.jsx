@@ -59,6 +59,9 @@ export function filterBurst(data, filter, by) {
         if (burst[by].includes(filter)) {  // Assumes `burst.Verify` is a string or array
             out.push(burst);
         }
+        if (filter == null && burst[by] == '') {
+            out.push(burst);
+        }
     });
     return out;
 }
