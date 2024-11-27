@@ -186,10 +186,15 @@
   bottom: 0;
 }
 
+.dp {
+  position: fixed;
+}
+
 .data-container {
   margin-left: 5vw;
   margin-right: 5vw;
   width: 90vw;
+
   max-height: 70vh;
   overflow-y: auto;
   border: 1px inset lightgray;
@@ -569,7 +574,7 @@
 .home-search {
   width: 50vw;
   height: 80vh;
-
+  position: fixed;
   margin-top: 11vh;
   display: flex;
   justify-content: center;

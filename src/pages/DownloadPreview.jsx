@@ -21,7 +21,7 @@ export default function DownloadPreview({ bursts }) {
     const keys = getAllKeys();
 
     return (
-        <div>
+        <div >
             <div className='data-container'>
                 <table className="view-boxes" >
                     <thead>

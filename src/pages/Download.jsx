@@ -58,7 +58,7 @@ export default function Download(props) {
     };
 
     return (
-        <div>
+        <div className="dp">
             <div className="download-filter-container">
                 {isNotPreview ? (
                     <div className="download-filter">
