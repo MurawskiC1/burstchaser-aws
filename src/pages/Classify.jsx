@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import { getBursts } from "../functions/datamanager";
-
+import { getBursts, getComments } from "../functions/datamanager";
+import Comments from "../components/Comments";
 const Classify = () => {
     const bursts = getBursts([null], "", "");
     const [randNum, setRandNum] = useState(Math.floor(Math.random() * bursts.length))
+    const [newComment, setNewComment] = useState("");
     /*
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
@@ -13,7 +14,9 @@ const Classify = () => {
 
     const c = bursts[randNum];
 
+    const comments = getComments(c.BurstID);
 
+    console.log(comments)
 
     const handleDrop = async (event, classification) => {
         event.preventDefault();
@@ -63,7 +66,7 @@ const Classify = () => {
                     ))}
                 </div>
             </div>
-            {/*
+
             <div className="comments-container">
                 <Comments comments={comments} />
                 <div className="comment-box-container">
@@ -78,7 +81,7 @@ const Classify = () => {
                     </div>
                 </div>
             </div>
-            */}
+
         </div>
     );
 };

@@ -1,5 +1,6 @@
 
 import data from "../data/pulse_shape.json";
+import comments from "../data/comments.json";
 
 export function getBursts(filters, searchQuery, sorting) {
     let updatedData = [...data];
@@ -21,6 +22,31 @@ export function getBursts(filters, searchQuery, sorting) {
 
     return updatedData;
 };
+export function getComments(burstId) {
+    let updatedData = [...comments];
+
+    // Apply filters
+    if (burstId) {
+        updatedData = filter(updatedData, burstId, "comment_focus_id");
+    };
+
+    return updatedData;
+};
+
+export function filter(data, id, by) {
+    const out = [];  // Properly declare `out` here
+
+    data.forEach((comment) => {
+        if (comment) {
+
+            if (comment[by] == id) {  // Assumes `burst.Verify` is a string or array
+                out.push(comment);
+            }
+        }
+
+    });
+    return out;
+}
 
 export function downloadCsv(csvData, filename) {
     const blob = new Blob([csvData], { type: 'text/csv' });
