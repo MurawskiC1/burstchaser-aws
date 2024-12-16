@@ -9,7 +9,7 @@ export default function NewHome(props) {
 
                 </div>
                 <div className="visual">
-                    NIG
+                    hello
                 </div>
 
             </div>

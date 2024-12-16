@@ -21,7 +21,7 @@ export default function Navbar() {
 
 
             <Link className="nav_title" to='/' onClick={handleLinkClick}>
-                <img className="nav_img" src="../public/burst_chaser.png" />
+                <img className="nav_img" src="/public/burst_chaser.png" />
                 <h1 className="company">Burst Chaser</h1>
             </Link>
             {/* Hamburger menu icon */}
