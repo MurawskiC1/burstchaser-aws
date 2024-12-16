@@ -15,7 +15,8 @@ export default function NewHome(props) {
             </div>
             <div className="welcome_blurb">
                 <div className="visual">
-                    Hmm
+                    This will be an image
+
                 </div>
                 <div className="writing">
                     <p>Burst chaser is a citezen science project hoing to find new ways to classify gamma ray bursts
