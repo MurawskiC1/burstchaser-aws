@@ -18,7 +18,10 @@ export default function Navbar() {
     return (
         //create the navbar
         <nav className='navbar'>
-            <Link to='/' onClick={handleLinkClick}>
+
+
+            <Link className="nav_title" to='/' onClick={handleLinkClick}>
+                <img className="nav_img" src="../public/burst_chaser.png" />
                 <h1 className="company">Burst Chaser</h1>
             </Link>
             {/* Hamburger menu icon */}
@@ -30,22 +33,24 @@ export default function Navbar() {
             <ul className={`menu ${showMenu ? 'active' : ''}`}>
                 <li>
                     <Link to="/" onClick={handleLinkClick}>
-                        <h1 className="navbar-buttons">Home</h1>
+                        <h2 className="navbar-buttons">Home</h2>
                     </Link>
                 </li>
                 <li>
                     <Link to="data" onClick={handleLinkClick}>
-                        <h1 className="navbar-buttons">Explore</h1>
+                        <h2 className="navbar-buttons">Explore</h2>
                     </Link>
                 </li>
+                {/*
                 <li>
                     <Link to="classify" onClick={handleLinkClick}>
-                        <h1 className="navbar-buttons">Classify</h1>
+                        <h2 className="navbar-buttons">Classify</h2>
                     </Link>
                 </li>
+                */}
                 <li>
                     <Link to="download" onClick={handleLinkClick}>
-                        <h1 className="navbar-buttons">Download</h1>
+                        <h2 className="navbar-buttons">Download</h2>
                     </Link>
                 </li>
 

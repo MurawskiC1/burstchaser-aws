@@ -7,6 +7,7 @@ import { getBursts } from "./functions/datamanager";
 import Preview from "./pages/Preview"
 import Download from "./pages/Download";
 import Classify from "./pages/Classify";
+import NewHome from "./pages/NewHome";
 export default function AppRoutes(props) {
 
     const bursts = getBursts([], "", "");
@@ -14,7 +15,7 @@ export default function AppRoutes(props) {
 
         <div>
             <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<NewHome />} />
                 <Route path='/alexis' element={<SpecialPage />} />
                 <Route path="/data" element={<Data />} />
                 <Route path="/classify" element={<Classify />} />
