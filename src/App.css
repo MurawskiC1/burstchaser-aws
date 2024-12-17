@@ -162,7 +162,7 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 0;
     background: black;
     width: 100%;
@@ -194,8 +194,14 @@
 
 /*------------------------------------------DATA-------------------------------------*/
 .data-page {
-  position: fixed;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.navbarspace {
+  width: 100vw;
+  height: 8vh;
 }
 
 .dp {
@@ -702,7 +708,7 @@
 .download-filter-container {
   width: 100vw;
   height: auto;
-  margin-top: 15vh;
+  margin-top: 5vh;
   margin-bottom: 5vh;
 
   display: flex;
@@ -803,41 +809,83 @@
 
 
 .footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -100px;
-  /* Initially hide the footer */
-  height: 100px;
-  background-color: rgba(29, 29, 29, 0.923);
-  color: white;
-  text-align: center;
-  line-height: 100px;
-  /* Center text vertically */
-  transition: bottom 0.3s;
-  /* Smooth transition */
-}
-
-.footer.visible {
-  bottom: 0;
-  /* Show the footer on hover */
-}
-
-.welcome_blurb {
   width: 100vw;
-  height: 95vh;
+  background-color: black;
+  color: white;
+  overscroll-behavior: none;
+}
 
+
+
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('public/StarySky.jpeg');
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: space-around;
 
+
+}
+
+.welcome {
+  color: white;
+  font-size: 30px;
+  display: inline;
+
+}
+
+.welcomeButton {
+  padding: 20px;
+  width: 120%;
+
+
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+}
+
+.welcomeButton button {
+  background-color: black;
+  border-color: black;
+  color: rgb(163, 228, 252);
+  box-shadow: 0 0px 6px rgb(163, 228, 252);
+  width: 30%;
+  height: 20%;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: 600;
+}
+
+.welcomeButton button:hover {
+
+
+  transition: 0.8s;
 }
 
 .writing {
   width: 40vw;
+  color: white;
+
   font-size: x-large;
 }
 
+.what {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+}
+
 .visual {
-  background-color: green;
+  background-image: url('public/Nebula.jpg');
+  width: 300px;
+  height: 300px;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
 }

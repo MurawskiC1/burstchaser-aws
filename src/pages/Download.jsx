@@ -58,7 +58,8 @@ export default function Download(props) {
     };
 
     return (
-        <div className="dp">
+        <div className="data-page">
+            <div className="navbarspace" />
             <div className="download-filter-container">
                 {isNotPreview ? (
                     <div className="download-filter">

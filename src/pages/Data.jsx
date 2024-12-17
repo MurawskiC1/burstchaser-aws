@@ -84,6 +84,7 @@ export default function Data() {
 
     return (
         <div className='data-page'>
+            <div className='navbarspace' />
             <SlidingContainer isOpen={isOpen}>
                 <h1>Classification:</h1>
                 <FilterButtons handleTypeChange={handleFilter} />
