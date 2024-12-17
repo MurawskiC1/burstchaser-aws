@@ -821,7 +821,7 @@
 .slide {
   width: 100vw;
   height: 100vh;
-  background-image: url('public/StarySky.jpeg');
+  background-image: url('/StarySky.jpeg');
   background-size: contain;
   display: flex;
   align-items: center;
@@ -880,7 +880,7 @@
 }
 
 .visual {
-  background-image: url('public/Nebula.jpg');
+  background-image: url('/Nebula.jpg');
   width: 300px;
   height: 300px;
   background-size: contain;
