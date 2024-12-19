@@ -817,6 +817,8 @@
 
 
 .footer {
+  padding: 20px;
+  margin-bottom: 70px;
   width: 100vw;
   background-color: black;
   color: white;
