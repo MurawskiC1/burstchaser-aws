@@ -24,11 +24,11 @@ export default function NewHome(props) {
                 </div>
 
             </div>
-            <div className="slide">
+            <div className="info-slide">
 
                 <div className="what">
-                    <div className="visual">
-
+                    <div >
+                        <img className="visual" src="/Nebula.jpg" />
                     </div>
 
                     <div className="writing">
@@ -43,9 +43,44 @@ export default function NewHome(props) {
                 </div>
 
             </div>
+            <div className="info-slide">
+
+                <div className="what">
 
 
-        </div>
+                    <div className="writing">
+                        This could be a slide about how we classify the burst and show
+                        an example of a light curve so people know
+                        what they are looking at.
+
+                    </div>
+                    <div>
+                        <img className="visual" src="/BurstPhotos/GRB041223_100585.png" />
+                    </div>
+
+                </div>
+
+            </div>
+            <div className="info-slide">
+
+                <div className="what">
+
+
+                    <div className="writing">
+                        Definity need a slide explaining how cool the team is.
+
+
+                    </div>
+                    <div>
+                        <img className="visual" src="/StarySky.jpeg" />
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div >
     )
 };
 

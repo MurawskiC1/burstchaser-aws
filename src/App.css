@@ -35,7 +35,7 @@
 }
 
 .special {
-  display: inline;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-size: xx-large;
@@ -45,6 +45,13 @@
   color: blueviolet;
 }
 
+.special img {
+  width: 250px;
+  height: 330px;
+  object-fit: cover;
+  object-position: -40% 0;
+}
+
 .page-container {
   margin-top: 80px;
 
@@ -52,7 +59,7 @@
 
 /*------------------------------------NAVBAR----------------------------------------*/
 .navbar {
-  background: black;
+  background: rgb(0, 0, 0);
   color: rgba(255, 255, 255, 0.971);
   display: flex;
   justify-content: space-between;
@@ -197,6 +204,7 @@
   width: 100vw;
   height: 100vh;
   background-color: white;
+
 }
 
 .navbarspace {
@@ -815,6 +823,54 @@
   overscroll-behavior: none;
 }
 
+.footerimage {
+
+
+  margin-left: 10px;
+
+}
+
+.footerimage img {
+  width: 50px;
+
+  margin-top: 5px;
+  height: auto;
+}
+
+.footer-options {
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-options p {
+  margin: 10px;
+}
+
+.options-head {
+
+  width: 250px;
+}
+
+.options-head p {
+  color: gray;
+}
+
+.footer-text {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.footer-text h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+
 
 
 
@@ -826,12 +882,22 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  color: white;
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.341);
+
+}
+
+.info-slide {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100vw;
+  background-color: white;
 
 
 }
 
 .welcome {
-  color: white;
+
   font-size: 30px;
   display: inline;
 
@@ -848,10 +914,10 @@
 }
 
 .welcomeButton button {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.571);
   border-color: black;
   color: rgb(163, 228, 252);
-  box-shadow: 0 0px 6px rgb(163, 228, 252);
+  box-shadow: 0 0px 10px rgb(163, 228, 252);
   width: 30%;
   height: 20%;
   margin-left: 20px;
@@ -861,13 +927,13 @@
 
 .welcomeButton button:hover {
 
-
+  box-shadow: 0 0px 0px rgb(163, 228, 252);
   transition: 0.8s;
 }
 
 .writing {
   width: 40vw;
-  color: white;
+
 
   font-size: x-large;
 }
@@ -880,10 +946,12 @@
 }
 
 .visual {
-  background-image: url('/Nebula.jpg');
-  width: 300px;
+
+  width: auto;
   height: 300px;
-  background-size: contain;
+
+  margin: 30px;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
