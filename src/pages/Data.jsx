@@ -111,6 +111,7 @@ export default function Data() {
                 </div>
                 <div className='data-container'>
                     <BurstTable bursts={data} start={start} end={end} handleSort={(sorting) => handleSort(sorting, setSorting)} />
+
                 </div>
                 <div className='page-control-container'>
                     <PaginationControls

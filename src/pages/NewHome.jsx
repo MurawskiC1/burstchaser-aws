@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Link } from "react-router-dom";
 export default function NewHome(props) {
     const scrollDown = () => {
         window.scrollBy({
@@ -16,9 +16,9 @@ export default function NewHome(props) {
 
                     <h2>Welcome to Burst Chaser</h2>
                     <div className="welcomeButton">
-                        <button onClick={scrollDown}>About</button>
-                        <button>Explore</button>
-                        <button>Download</button>
+                        <Link  > <button className="welcomeButtonbutton" onClick={scrollDown}>About</button></Link>
+                        <Link to="data"> <button className="welcomeButtonbutton">Explore</button></Link>
+                        <Link to="download"><button className="welcomeButtonbutton">Download</button></Link>
                     </div>
 
                 </div>

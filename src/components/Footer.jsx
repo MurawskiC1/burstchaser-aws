@@ -1,6 +1,6 @@
 import React from "react"
 import { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 export default function Footer(props) {
 
     return (
@@ -22,18 +22,19 @@ export default function Footer(props) {
                     <div className="footer-options">
 
                         <div className="options-options">
-                            <p>About</p>
-                            <p>Explore</p>
-                            <p>Download</p>
+                            <Link to="/"><p>About</p></Link>
+                            <Link to="data"><p>Explore</p></Link>
+                            <Link to="download"><p>Download</p></Link>
                         </div>
                         <div className="options-options">
-                            <p>Classify Bursts</p>
-                            <p>Zooniverse</p>
+
+                            <a href="https://www.zooniverse.org/projects/amylien/burst-chaser/classify"><p>Classify Bursts</p></a >
+                            <a href="https://www.zooniverse.org/projects/amylien/burst-chaser"><p>Zooniverse</p></a >
                             <p>Join Burst Chaser</p>
 
                         </div>
                         <div className="options-options">
-                            <p>Contact</p>
+                            <a href="mailto:murawskiC1C4@gmail.com"><p>Contact</p></a>
 
                         </div>
                     </div>
