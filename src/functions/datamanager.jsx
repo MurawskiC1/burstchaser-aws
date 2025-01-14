@@ -7,7 +7,7 @@ export function getBursts(filters, searchQuery, sorting) {
 
     // Apply filters
     filters.forEach((filter) => {
-        updatedData = filterBurst(updatedData, filter, "95%_Verify");
+        updatedData = filterBurst(updatedData, filter, "ML_Verify");
     });
 
     // Apply search
