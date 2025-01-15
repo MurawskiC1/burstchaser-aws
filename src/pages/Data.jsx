@@ -87,14 +87,18 @@ export default function Data() {
             <div className='navbarspace' />
             <SlidingContainer isOpen={isOpen}>
                 <h1>Classification:</h1>
-                <FilterButtons handleTypeChange={handleFilter} />
+                <h2>Proportions</h2>
+                <FilterButtons handleTypeChange={handleFilter} verify={"Prop_Verify"} />
+                <h2>95% Frequency</h2>
+                <FilterButtons handleTypeChange={handleFilter} verify={"95%_Verify"} />
+                <h2>99% Frequency</h2>
+                <FilterButtons handleTypeChange={handleFilter} verify={"99%_Verify"} />
+                <h2>Machine Learning:</h2>
+                <FilterButtons handleTypeChange={handleFilter} verify={"ML_Verify"} />
                 <div className='applied-filter-container'>
                     <AppliedFilters appliedFilters={filters} handleRemoveFilter={handleFilter} setFilter={setFilters} />
                 </div>
-                <h1>Confidence:</h1>
-                <div className='confidence-container'>
-                    {/*<ConfidenceSlider conf={conf} handleConfidenceLevel={handleConfidenceLevel} />*/}
-                </div>
+
             </SlidingContainer>
             <div className="main-page" onClick={() => clickOff()}>
                 <div className="filter-container">

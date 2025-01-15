@@ -15,10 +15,10 @@ export function BurstTable({ bursts, start, end, handleSort }) {
                         <th onClick={() => handleSort("Extended")}>Extended</th>
                         <th onClick={() => handleSort("Other")}>Other</th>
                         <th onClick={() => handleSort("Too_Noisy")}>Too Noisy</th>
-                        <th onClick={() => handleSort("Simple_Proportion")}>SimpleP</th>
-                        <th onClick={() => handleSort("Extended_Proportion")}>ExtendedP</th>
-                        <th onClick={() => handleSort("Other_Proportion")}>OtherP</th>
-                        <th onClick={() => handleSort("Too_Noisy_Proportion")}>Too NoisyP</th>
+                        <th onClick={() => handleSort("Simple_Proportion")}>Simple Proportion</th>
+                        <th onClick={() => handleSort("Extended_Proportion")}>Extended Proportion</th>
+                        <th onClick={() => handleSort("Other_Proportion")}>Other Proportion</th>
+                        <th onClick={() => handleSort("Too_Noisy_Proportion")}>Too Noisy Proportion</th>
                         <th onClick={() => handleSort("Count")}>Count</th>
                         <th onClick={() => handleSort("Prop_Verify")}>Prop Verified</th>
                         <th onClick={() => handleSort("95%_Verify")}>95% Verified</th>

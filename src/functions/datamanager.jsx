@@ -2,12 +2,17 @@
 import data from "../data/pulse_shape.json";
 import comments from "../data/comments.json";
 
-export function getBursts(filters, searchQuery, sorting) {
+export function getBursts(filters, searchQuery, sorting,) {
     let updatedData = [...data];
 
     // Apply filters
     filters.forEach((filter) => {
-        updatedData = filterBurst(updatedData, filter, "ML_Verify");
+        const [f, verify] = filter.split("/");
+        if (f == "None") {
+            updatedData = filterBurst(updatedData, null, verify);
+        } else {
+            updatedData = filterBurst(updatedData, f, verify);
+        }
     });
 
     // Apply search
