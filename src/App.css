@@ -873,7 +873,7 @@
   padding: 20px;
 
 
-  background-color: black;
+
   color: white;
   overscroll-behavior: none;
 }
@@ -909,6 +909,7 @@
   width: 100vw;
 
   padding-top: 10vh;
+
   display: flex;
   justify-content: center;
 
