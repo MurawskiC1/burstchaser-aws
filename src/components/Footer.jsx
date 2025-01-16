@@ -14,9 +14,10 @@ export default function Footer(props) {
                 <div className="footer-text">
                     <div className="options-head">
                         <h1>Burst Chaser</h1>
-                        <p>This will be for the mission statement for
-                            burst chaser. So that on every page you can learn
-                            a little about it.
+                        <p>A citizen science project aiming to
+                            unveil the mysteries about the most
+                            energetic explosions in the universe,
+                            Gamme Ray Bursts.
                         </p>
                     </div >
                     <div className="footer-options">

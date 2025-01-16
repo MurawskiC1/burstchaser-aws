@@ -32,11 +32,10 @@ export default function NewHome(props) {
                     </div>
 
                     <div className="writing">
-                        Burst Chaser is a citizen science project that aims to aid
-                        scientist in the classification of Gamma Ray Bursts(GRBS).
-                        By using those without bias of exploring scientist we will be
-                        able to find new ways to look at already exsistant
-                        light curves.
+                        Burst Chaser is a citizen science project hosted on <a className="homelink" href="https://www.zooniverse.org/projects/amylien/burst-chaser">Zooniverse</a> that invites volunteers to help astronomers classify pulse structures of gamma-ray bursts (GRBs).
+                        GRBs are one of the most energetic explosions in the universe.
+                        These extraordinary events likely originate from either the death of massive stars, or the merging of neutron stars and black holes.
+                        Classifying pulse structures help astronomers explore the mysterious origin of these events.
 
                     </div>
 
@@ -46,12 +45,9 @@ export default function NewHome(props) {
             <div className="info-slide">
 
                 <div className="what">
-
-
                     <div className="writing">
-                        This could be a slide about how we classify the burst and show
-                        an example of a light curve so people know
-                        what they are looking at.
+                        Thanks to the help from 3,350 volunteers, we now have 56,000 classifications.
+                        They can be found on the Explore page and Downloaded on the Download page.
 
                     </div>
                     <div>
@@ -67,7 +63,11 @@ export default function NewHome(props) {
 
 
                     <div className="writing">
-                        Definity need a slide explaining how cool the team is.
+                        The Burst Chaser program is carried out by students and faculty at the University of Tampa,
+                        many dedicated NASA volunteers, and collaborators from NASA Goddard Space Flight Center,
+                        University of Nevada, Las Vegas, University of Rome, The University of Alabama in Huntsville,
+                        Louisiana State University, and George Washington University. See our team member on
+                        <a className="homelink" href="https://www.zooniverse.org/projects/amylien/burst-chaser/about/team"> Zooniverse</a>.
 
 
                     </div>

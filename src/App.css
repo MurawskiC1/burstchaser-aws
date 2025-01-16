@@ -968,6 +968,10 @@
   justify-content: center;
 }
 
+.homelink {
+  color: rgb(47, 200, 255);
+}
+
 .welcomeButtonbutton {
   background-color: rgba(0, 0, 0, 0.571);
   border-color: black;
