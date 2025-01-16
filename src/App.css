@@ -871,7 +871,7 @@
 
 .footer {
   padding: 20px;
-  margin-bottom: 70px;
+
 
   background-color: black;
   color: white;
@@ -895,7 +895,7 @@
 .footer-options {
   margin-left: 100px;
   margin-right: 100px;
-  width: 40vw;
+  width: 50vw;
   display: flex;
   justify-content: space-between;
 }
@@ -904,9 +904,24 @@
   margin: 10px;
 }
 
+.trademark {
+  color: gray;
+  width: 100vw;
+
+  padding-top: 10vh;
+  display: flex;
+  justify-content: center;
+
+}
+
 .options-head {
 
   width: 250px;
+}
+
+.options-head h1 {
+
+  font-size: 30px;
 }
 
 .options-head p {
@@ -922,6 +937,17 @@
 .footer-text h1 {
   margin-top: 10px;
   margin-bottom: 10px;
+
+}
+
+.options-options {
+  display: inline;
+  align-items: center;
+  justify-content: center;
+}
+
+.options-options img {
+  width: 100px;
 
 }
 

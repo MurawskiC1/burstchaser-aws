@@ -7,6 +7,7 @@ export default function Footer(props) {
         <div>
             <footer className="footer">
                 <div className="footerimage">
+
                     <img src="burst_chaser.png" />
 
 
@@ -38,8 +39,15 @@ export default function Footer(props) {
                             <a href="mailto:murawskiC1C4@gmail.com"><p>Contact</p></a>
 
                         </div>
+
+
+
                     </div>
                 </div>
+                <div className="trademark">
+                    <div>This website was designed and devloped by Carter Murawski</div>
+                </div>
+
             </footer>
         </div>
     )
