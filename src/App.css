@@ -878,6 +878,23 @@
   overscroll-behavior: none;
 }
 
+.partners {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  width: 20vw;
+}
+
+.partners div {
+
+  width: 14vw;
+}
+
+.partners img {
+  height: 100px;
+  width: auto;
+}
+
 .footerimage {
 
 

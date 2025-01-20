@@ -2,10 +2,11 @@
 import data from "../data/pulse_shape.json";
 import comments from "../data/comments.json";
 
-export function getBursts(filters, searchQuery, sorting,) {
+export function getBursts(filters = [], searchQuery = "", sorting = null) {
     let updatedData = [...data];
 
     // Apply filters
+
     filters.forEach((filter) => {
         const [f, verify] = filter.split("/");
         if (f == "None") {
@@ -14,6 +15,8 @@ export function getBursts(filters, searchQuery, sorting,) {
             updatedData = filterBurst(updatedData, f, verify);
         }
     });
+
+
 
     // Apply search
     if (searchQuery) {

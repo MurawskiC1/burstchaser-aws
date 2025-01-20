@@ -27,15 +27,18 @@ export default function Data() {
     const handleFilter = (filter) => {
         setFilters((prevFilters) => {
             // Toggle the filter: add if not present, remove if already exists
+            setStart(0)
             if (prevFilters.includes(filter)) {
                 return prevFilters.filter((f) => f !== filter); // Remove filter
             } else {
                 return [...prevFilters, filter]; // Add filter
             }
+
         });
     };
 
     const handleSearch = (event) => {
+        setStart(0)
         setSearchQuery(event.target.value); // Update search query
     };
 

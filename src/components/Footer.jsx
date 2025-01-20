@@ -44,6 +44,11 @@ export default function Footer(props) {
 
 
                         </div>
+                        <div className="partners">
+                            <div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="trademark">

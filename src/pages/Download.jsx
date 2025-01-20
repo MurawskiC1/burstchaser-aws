@@ -1,44 +1,20 @@
 import React, { useState } from "react";
 import DownloadPreview from "./DownloadPreview";
 import { jsonToCsv, downloadCsv, getBursts } from "../functions/datamanager";
-
+import { FilterButtons, AppliedFilters } from "../components/FilterComponents";
 export default function Download(props) {
     const [filters, setFilters] = useState([]);
     const bursts = getBursts(filters, "", "");
     const [isNotPreview, setPreview] = useState(true);
 
-    const [checkedItems, setCheckedItems] = useState({
-        Simple: false,
-        Extended: false,
-        Other: false,
-        Too_Noisy: false,
-        All: false,
-    });
-
-    // Handle individual and "All" checkbox changes
-    const handleCheckboxChange = (type) => {
-        setCheckedItems((prevCheckedItems) => {
-            const isAllToggle = type === "All";
-            const newCheckedItems = { ...prevCheckedItems, [type]: !prevCheckedItems[type] };
-
-            if (isAllToggle) {
-                const allChecked = !prevCheckedItems.All;
-                const updatedCheckedItems = Object.keys(newCheckedItems).reduce((acc, key) => {
-                    acc[key] = allChecked;
-                    return acc;
-                }, {});
-
-                setFilters(allChecked ? ["Simple", "Extended", "Other", "Too_Noisy"] : []);
-                return updatedCheckedItems;
+    const handleFilter = (filter) => {
+        setFilters((prevFilters) => {
+            // Toggle the filter: add if not present, remove if already exists
+            if (prevFilters.includes(filter)) {
+                return prevFilters.filter((f) => f !== filter); // Remove filter
             } else {
-                if (newCheckedItems[type]) {
-                    setFilters((prevFilters) => [...prevFilters, type]);
-                } else {
-                    setFilters((prevFilters) => prevFilters.filter((filter) => filter !== type));
-                }
+                return [...prevFilters, filter]; // Add filter
             }
-
-            return newCheckedItems;
         });
     };
 
@@ -62,17 +38,19 @@ export default function Download(props) {
             <div className="navbarspace" />
             <div className="download-filter-container">
                 {isNotPreview ? (
-                    <div className="download-filter">
-                        {Object.keys(checkedItems).map((type) => (
-                            <div key={type}>
-                                <input
-                                    type="checkbox"
-                                    checked={checkedItems[type]}
-                                    onChange={() => handleCheckboxChange(type)}
-                                />
-                                {type.replace("_", " ")}
-                            </div>
-                        ))}
+                    <div>
+                        <h1>Classification:</h1>
+                        <h2>Proportions</h2>
+                        <FilterButtons handleTypeChange={handleFilter} verify={"Prop_Verify"} />
+                        <h2>95% Frequency</h2>
+                        <FilterButtons handleTypeChange={handleFilter} verify={"95%_Verify"} />
+                        <h2>99% Frequency</h2>
+                        <FilterButtons handleTypeChange={handleFilter} verify={"99%_Verify"} />
+                        <h2>Machine Learning:</h2>
+                        <FilterButtons handleTypeChange={handleFilter} verify={"ML_Verify"} />
+                        <div className='applied-filter-container'>
+                            <AppliedFilters appliedFilters={filters} handleRemoveFilter={handleFilter} setFilter={setFilters} />
+                        </div>
                     </div>
                 ) : (
                     <DownloadPreview bursts={bursts} />
