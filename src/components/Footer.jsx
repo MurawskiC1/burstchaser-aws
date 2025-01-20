@@ -9,7 +9,7 @@ export default function Footer(props) {
                 <div className="footer">
                     <div className="footerimage">
 
-                        <img src="burst_chaser.png" />
+                        <img src="/burst_chaser.png" />
 
 
                     </div>
@@ -37,7 +37,8 @@ export default function Footer(props) {
 
                             </div>
                             <div className="options-options">
-                                <a href="mailto:murawskiC1C4@gmail.com"><p>Contact</p></a>
+                                <a href="mailto:murawskiC1C4@gmail.com"><p>Contact:</p></a>
+                                <p>murawskiC1C4@gmail.com</p>
 
                             </div>
 
