@@ -37,11 +37,31 @@ export default function Preview(props) {
                         <div>Too Noisy: {burst.Too_Noisy}</div>
                     </div>
                     <div className="questions">
-                        <div>Symmetrical Structure: {burst.Symmetrical}</div>
-                        <div>Fast Rise Slow Decay: {burst.FastRiseSlowDecay}</div>
-                        <div>Underlying Emission: {burst.UnderlyingEmission}</div>
-                        <div>Rapidly Varying Pulses: {burst.RapidlyVarying}</div>
+                        <div>Symmetrical Structure: {burst.Follow[0]}</div>
+                        <div>Fast Rise Slow Decay: {burst.Follow[1]}</div>
+                        <div>Underlying Emission: {burst.Follow[2]}</div>
+                        <div>Rapidly Varying Pulses: {burst.Follow[3]}</div>
                     </div>
+
+                </div>
+                <div className="verifications">
+                    <div className="vcont">
+                        <div className="type">
+                            <p className="label">Proportions:</p> {burst.Prop_Verify || "Not Classified"}
+                        </div>
+                        <div className="type">
+                            <p className="label">95% Confidence:</p> {burst["95%_Verify"] || "Not Classified"}
+                        </div>
+                        <div className="type">
+                            <p className="label">99% Confidence:</p> {burst["99%_Verify"] || "Not Classified"}
+                        </div>
+                        <div className="type">
+                            <p className="label">Machine Learning:</p> {burst.ML_Verify || "Not Classified"}
+
+                        </div>
+                    </div>
+
+
                 </div>
                 {/*
             <div className="comments-container">
