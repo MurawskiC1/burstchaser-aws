@@ -553,15 +553,22 @@
   justify-content: space-around;
 }
 
+.q-contain {
+  width: 40%;
+  padding: 5%;
+
+}
+
 .questions {
-  width: 35%;
+
   padding: 20px;
   display: inline;
   justify-content: center;
-  border: 1px solid rgba(128, 128, 128, 0.335);
+
 }
 
 .questions div {
+
   width: 100%;
   padding: 5px;
   font-size: 25px;
@@ -1033,6 +1040,7 @@
 }
 
 .welcomeButton {
+  background-color: transparent;
   padding: 20px;
   width: 120%;
 

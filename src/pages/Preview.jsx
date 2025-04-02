@@ -29,21 +29,33 @@ export default function Preview(props) {
                     )}
                 </div>
 
+
                 <div className="preview-info">
-                    <div className="questions">
-                        <div>Simple: {burst.Simple}</div>
-                        <div>Extended: {burst.Extended}</div>
-                        <div>Other: {burst.Other}</div>
-                        <div>Too Noisy: {burst.Too_Noisy}</div>
+
+                    <div className="boximg-container">
+                        {burst.Burst_PNG && (() => {
+                            const [name, ext] = burst.Burst_PNG.split('.');
+                            return <img src={`/BurstBoxes/${name}_boxed.${ext}`} alt="Burst Image" />;
+                        })()}
                     </div>
-                    <div className="questions">
-                        <div>Symmetrical Structure: {burst.Follow[0]}</div>
-                        <div>Fast Rise Slow Decay: {burst.Follow[1]}</div>
-                        <div>Underlying Emission: {burst.Follow[2]}</div>
-                        <div>Rapidly Varying Pulses: {burst.Follow[3]}</div>
+                    <div className="q-contain">
+                        <div className="questions">
+                            <div>Symmetrical Structure: {burst.Follow[0]}</div>
+                            <div>Fast Rise Slow Decay: {burst.Follow[1]}</div>
+                            <div>Underlying Emission: {burst.Follow[2]}</div>
+                            <div>Rapidly Varying Pulses: {burst.Follow[3]}</div>
+                        </div>
+                        <div className="questions">
+                            <div>Simple: {burst.Simple}</div>
+                            <div>Extended: {burst.Extended}</div>
+                            <div>Other: {burst.Other}</div>
+                            <div>Too Noisy: {burst.Too_Noisy}</div>
+                        </div>
                     </div>
 
+
                 </div>
+
                 <div className="verifications">
                     <div className="vcont">
                         <div className="type">
@@ -60,9 +72,12 @@ export default function Preview(props) {
 
                         </div>
                     </div>
-
-
                 </div>
+
+
+
+
+
                 {/*
             <div className="comments-container">
                 <Comments comments={comments} />
