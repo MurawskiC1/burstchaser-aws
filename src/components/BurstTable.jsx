@@ -19,10 +19,25 @@ export function BurstTable({ bursts, start, end, handleSort }) {
                         <th onClick={() => handleSort("Extended_Proportion")}>Extended Proportion</th>
                         <th onClick={() => handleSort("Other_Proportion")}>Other Proportion</th>
                         <th onClick={() => handleSort("Too_Noisy_Proportion")}>Too Noisy Proportion</th>
-                        <th onClick={() => handleSort("Count")}>Count</th>
+                        <th onClick={() => handleSort("Main_Category_Count")}>Count_Main</th>
+                        
+                        <th onClick={() => handleSort("Symmetric")}>Symmetric</th>
+                        <th onClick={() => handleSort("Rapidly_Varying")}>Rapidly Varying</th>
+                        <th onClick={() => handleSort("Connected")}>Connected</th>
+                        <th onClick={() => handleSort("Fast_Rise_Slow Decay")}>Fast rise slow decay</th>
+                        <th onClick={() => handleSort("Hard_to_Tell")}>Hard to Tell</th>
+                        <th onClick={() => handleSort("Symmetric_Proportion")}>Symmetric Proportion</th>
+                        <th onClick={() => handleSort("Rapidly_Varying_Proportion")}>Rapidly Varying Proportion</th>
+                        <th onClick={() => handleSort("Connected_Proportion")}>Connected Proportion</th>
+                        <th onClick={() => handleSort("Fast_rise_Slow_decay_Proportion")}>Fast rise slow decay Proportion</th>
+                        <th onClick={() => handleSort("Hard_to_Tell_Proportion")}>Hard to Tell Proportion</th>
+                        <th onClick={() => handleSort("Sub_Category_Count")}>Count_SUB</th>
+                        
                         <th onClick={() => handleSort("Prop_Verify")}>Prop Verified</th>
                         <th onClick={() => handleSort("95%_Verify")}>95% Verified</th>
                         <th onClick={() => handleSort("99%_Verify")}>99% Verified</th>
+                        <th onClick={() => handleSort("Gamma_Verify_Main")}>Gamma Verified Main</th>
+                        <th onClick={() => handleSort("Gamma_Verify_SUB")}>Gamma Verified SUB</th>
                         <th onClick={() => handleSort("ML_Verify")}>ML Verified</th>
                     </tr>
                 </thead>
@@ -48,10 +63,24 @@ export function BurstTable({ bursts, start, end, handleSort }) {
                                 <td>{burst.Extended_Proportion}</td>
                                 <td>{burst.Other_Proportion}</td>
                                 <td>{burst.Too_Noisy_Proportion}</td>
+                                
+                                <td>{burst.Symmetric}</td>
+                                <td>{burst.Rapidly_Varying}</td>
+                                <td>{burst.Connected}</td>
+                                <td>{burst.Fast_Rise_Slow_Decay}</td>
+                                <td>{burst.Hard_to_Tell}</td>
+                                <td>{burst.Symmetric_Proportion}</td>
+                                <td>{burst.Rapidly_Varying_Proportion}</td>
+                                <td>{burst.Connected_Proportion}</td>
+                                <td>{burst.Fast_Rise_Slow_Decay_Proportion}</td>
+                                <td>{burst.Hard_to_Tell_Proportion}</td>                                
+                                
                                 <td>{burst.Count}</td>
                                 <td>{burst.Prop_Verify}</td>
                                 <td>{burst["95%_Verify"]}</td>
                                 <td>{burst["99%_Verify"]}</td>
+                                <td>{burst["Gamma_Verify_Main"]}</td>
+                                <td>{burst["Gamma_Verify_SUB"]}</td>                                
                                 <td>{burst["ML_Verify"]}</td>
                             </tr>
                         ))
