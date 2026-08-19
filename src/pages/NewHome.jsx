@@ -46,7 +46,7 @@ export default function NewHome(props) {
 
                 <div className="what">
                     <div className="writing">
-                        Thanks to the help from 3,350 volunteers, we now have 56,000 classifications.
+                        Thanks to the help from 6,270 volunteers, we now have over 400,000 classifications!
                         They can be found on the Explore page and Downloaded on the Download page.
 
                     </div>
@@ -66,7 +66,7 @@ export default function NewHome(props) {
                         The Burst Chaser program is carried out by students and faculty at the University of Tampa,
                         many dedicated NASA volunteers, and collaborators from NASA Goddard Space Flight Center,
                         University of Nevada, Las Vegas, University of Rome, The University of Alabama in Huntsville,
-                        Louisiana State University, and George Washington University. See our team member on
+                        Louisiana State University, and George Washington University. See our team members on
                         <a className="homelink" href="https://www.zooniverse.org/projects/amylien/burst-chaser/about/team"> Zooniverse</a>.
 
 
