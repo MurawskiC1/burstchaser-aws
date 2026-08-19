@@ -38,7 +38,15 @@ export function FilterButtons({ handleTypeChange, verify }) {
                 <button onClick={() => handleTypeChange(`Other/${verify}`)}>Other</button>
 
                 <button onClick={() => handleTypeChange(`Too_Noisy/${verify}`)}>Too Noisy</button>
-                <button onClick={() => handleTypeChange(`None/${verify}`)}>Not Classified</button>
+
+                <button onClick={() => handleTypeChange(`Symmetric/${verify}`)}>Simple</button>
+                <button onClick={() => handleTypeChange(`Connected /${verify}`)}>Extended</button>
+                <button onClick={() => handleTypeChange(`Rapdily_Varying/${verify}`)}>Other</button>
+                <button onClick={() => handleTypeChange(`Fast_Rise_Slow_Decay/${verify}`)}>Too Noisy</button>
+                <button onClick={() => handleTypeChange(`Hard_to_Tell/${verify}`)}>Too Noisy</button>
+                
+                <button onClick={() => handleTypeChange(`None/${verify}`)}>Not Classified</button>                
+                
             </div>
         </div >
     );
