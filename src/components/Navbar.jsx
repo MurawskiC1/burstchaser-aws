@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
 
 
 export default function Navbar() {
@@ -17,28 +18,28 @@ export default function Navbar() {
 
     return (
         //create the navbar
-        <nav className='navbar'>
+        <nav className={styles.navbar}>
 
 
-            <Link className="nav_title" to='/' onClick={handleLinkClick}>
-                <img className="nav_img" src="/burst_chaser.png" />
-                <h1 className="company">Burst Chaser</h1>
+            <Link className={styles.nav_title} to='/' onClick={handleLinkClick}>
+                <img className={styles.nav_img} src="/burst_chaser.png" />
+                <h1 className={styles.company}>Burst Chaser</h1>
             </Link>
             {/* Hamburger menu icon */}
-            <div className="hamburger-menu" onClick={toggleMenu}>
-                <div className={`bar ${showMenu ? 'active' : ''}`}></div>
-                <div className={`bar ${showMenu ? 'active' : ''}`}></div>
-                <div className={`bar ${showMenu ? 'active' : ''}`}></div>
+            <div className={styles.hamburger_menu} onClick={toggleMenu}>
+                <div className={`${styles.bar} ${showMenu ? styles.active : ''}`}></div>
+                <div className={`${styles.bar} ${showMenu ? styles.active : ''}`}></div>
+                <div className={`${styles.bar} ${showMenu ? styles.active : ''}`}></div>
             </div>
-            <ul className={`menu ${showMenu ? 'active' : ''}`}>
+            <ul className={`${styles.menu} ${showMenu ? styles.active : ''}`}>
                 <li>
                     <Link to="/" onClick={handleLinkClick}>
-                        <h2 className="navbar-buttons">Home</h2>
+                        <h2 className={styles.navbar_buttons}>Home</h2>
                     </Link>
                 </li>
                 <li>
                     <Link to="data" onClick={handleLinkClick}>
-                        <h2 className="navbar-buttons">Explore</h2>
+                        <h2 className={styles.navbar_buttons}>Explore</h2>
                     </Link>
                 </li>
                 {/*
@@ -50,7 +51,7 @@ export default function Navbar() {
                 */}
                 <li>
                     <Link to="download" onClick={handleLinkClick}>
-                        <h2 className="navbar-buttons">Download</h2>
+                        <h2 className={styles.navbar_buttons}>Download</h2>
                     </Link>
                 </li>
 
