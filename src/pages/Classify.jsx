@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import { getBursts, getComments } from "../functions/datamanager";
 import Comments from "../components/Comments";
+import styles from './Classify.module.css';
+
 const Classify = () => {
     const bursts = getBursts([null], "", "");
     const [randNum, setRandNum] = useState(Math.floor(Math.random() * bursts.length))
@@ -40,11 +41,11 @@ const Classify = () => {
     };
 
     return (
-        <div className="classify-page">
-            <div className="classify-container">
-                <div className="burst-container">
+        <div className={styles.classify_page}>
+            <div className={styles.classify_container}>
+                <div className={styles.burst_container}>
                     {bursts.length > 0 && (
-                        <div className="drag-container" draggable>
+                        <div className={styles.drag_container} draggable>
                             <img
                                 src={`/BurstPhotos/${c.Burst_PNG}`}
                                 alt="Burst"
@@ -53,7 +54,7 @@ const Classify = () => {
                         </div>
                     )}
                 </div>
-                <div className="classify-buttons">
+                <div className={styles.classify_buttons}>
                     {['Simple', 'Extended', 'Other', 'Too_Noisy'].map(classification => (
                         <button
                             key={classification}
@@ -67,10 +68,10 @@ const Classify = () => {
                 </div>
             </div>
 
-            <div className="comments-container">
+            <div className={styles.comments_container}>
                 <Comments comments={comments} />
-                <div className="comment-box-container">
-                    <div className="withpost">
+                <div className={styles.comment_box_container}>
+                    <div className={styles.withpost}>
                         <textarea
                             value={newComment}
                             onChange={(e) => setNewComment(e.target.value)}

@@ -64,8 +64,6 @@ export function BurstTable({ bursts, start, end, handleSort }) {
                     )}
                 </tbody>
             </table>
-
-
         </div>
     );
 }
