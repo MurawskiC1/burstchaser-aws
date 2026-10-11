@@ -1,13 +1,12 @@
 import React from "react"
 import { Routes, Route } from 'react-router-dom';
-import Home from "./pages/Home";
 import SpecialPage from "./pages/SpecialPage";
 import Data from "./pages/Data";
 import { getBursts } from "./functions/datamanager";
 import Preview from "./pages/Preview"
 import Download from "./pages/Download";
 import Classify from "./pages/Classify";
-import NewHome from "./pages/NewHome";
+import Home from "./pages/Home";
 export default function AppRoutes(props) {
 
     const bursts = getBursts([], "", "");
@@ -15,7 +14,7 @@ export default function AppRoutes(props) {
 
         <div>
             <Routes>
-                <Route path='/' element={<NewHome />} />
+                <Route path='/' element={<Home />} />
                 <Route path='/alexis' element={<SpecialPage />} />
                 <Route path="/data" element={<Data />} />
                 <Route path="/classify" element={<Classify />} />
