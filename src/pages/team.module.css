@@ -1,0 +1,11 @@
+.team_page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/StarySky.jpeg');
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  /*box-shadow: 0 0px 6px rgba(0, 0, 0, 0.341);*/
+}

@@ -7,6 +7,7 @@ import Preview from "./pages/Preview"
 import Download from "./pages/Download";
 import Classify from "./pages/Classify";
 import Home from "./pages/Home";
+import Team from "./pages/team";
 export default function AppRoutes(props) {
 
     const bursts = getBursts([], "", "");
@@ -15,6 +16,7 @@ export default function AppRoutes(props) {
         <div>
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/team' element={<Team />} />
                 <Route path='/alexis' element={<SpecialPage />} />
                 <Route path="/data" element={<Data />} />
                 <Route path="/classify" element={<Classify />} />
